@@ -759,13 +759,17 @@ provided. TypeScript validation and the production build are available.
   Technology"; confirm its correct identity before launch.
 - Sections and project cards use subtle on-scroll reveals, while the
   logo strip moves horizontally. Hover/focus pauses the strip; system
-  reduced-motion preferences disable automatic animation.
+  reduced-motion preferences disable automatic animation. Service,
+  process, value, industry, FAQ, and project cards use staggered reveals.
 - No approved DS Associate corporate logo or photography assets were
   supplied. The site uses a typographic placeholder and illustrative
-  industrial photography from Unsplash. Client logos extracted from the
-  presentations are displayed after DSA confirmed permission. Confirm
-  all image licensing and replace illustrative assets with approved
-  company photography before publication.
+  industrial photography from Unsplash. Client logos, the founder
+  portrait, the Maharashtra footprint graphic, and two historical
+  meeting photographs are extracted from or supplied with the
+  presentations. DSA confirmed permission to publish client logos; verify
+  rights for the founder and meeting photography and the 2014 map artwork
+  before publication. Captions and office markers are presented as
+  supplied and are explicitly not endorsements or current live locations.
 
 ### Enquiry form and privacy
 
@@ -799,6 +803,9 @@ layouts, and every launch approval against the checklist above.
   discrepancy before launch.
 - [ ] Confirm client logo files correspond to the intended brand names
   and retain DSA's stated publication permission.
+- [ ] Confirm rights to publish the founder portrait, both historical
+  meeting photos, and the Maharashtra footprint map; verify people and
+  roles in the source captions.
 - [ ] Confirm the listed property ranges and the current availability of
   facilities and Built-to-Suit investors.
 - [ ] Confirm image licensing and replace illustrative imagery with

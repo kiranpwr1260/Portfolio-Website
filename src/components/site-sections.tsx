@@ -126,8 +126,8 @@ export function AboutSection() {
       <div className="mx-auto grid max-w-[1440px] gap-12 px-5 sm:px-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-center lg:gap-20 lg:px-12">
         <div className="relative min-h-[390px] overflow-hidden rounded-2xl sm:min-h-[520px]">
           <Image
-            src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1200&q=85"
-            alt="Contemporary commercial and industrial district"
+            src="/company/founder-deepak-thorat.jpg"
+            alt="Deepak Thorat, DS Associate Founder and Managing Director, as pictured in the company presentation"
             fill
             sizes="(max-width: 1024px) 100vw, 45vw"
             className="object-cover"
@@ -135,8 +135,8 @@ export function AboutSection() {
           <div className="absolute inset-0 bg-gradient-to-t from-[#10242d]/70 via-transparent to-transparent" />
           <div className="absolute bottom-6 left-6 right-6 flex items-end justify-between text-white sm:bottom-8 sm:left-8 sm:right-8">
             <div>
-              <p className="text-[10px] font-semibold uppercase tracking-[0.2em] text-white/75">DS Associate</p>
-              <p className="mt-2 max-w-xs text-xl font-medium leading-7">Practical guidance for complex industrial projects.</p>
+              <p className="text-[10px] font-semibold uppercase tracking-[0.2em] text-white/75">Founder & Managing Director</p>
+              <p className="mt-2 max-w-xs text-xl font-medium leading-7">Deepak Thorat</p>
             </div>
             <span className="hidden rounded-full border border-white/40 p-3 sm:block"><MoveUpRight className="size-5" /></span>
           </div>
@@ -155,12 +155,19 @@ export function AboutSection() {
             <p className="mt-2 text-sm leading-6 text-[#35474c]">&ldquo;{siteConfig.coreObjective}&rdquo;</p>
           </div>
           <div className="mt-9 grid gap-3 sm:grid-cols-2">
-            {siteConfig.values.map((title) => (
-              <div className="flex gap-3 rounded-xl border border-[#e6e2dc] bg-white p-4" key={title}>
+            {siteConfig.values.map((title, index) => (
+              <div
+                data-motion-item
+                style={{ "--motion-delay": `${index * 55}ms` } as React.CSSProperties}
+                className="rounded-xl border border-[#e6e2dc] bg-white p-4 transition-[border-color,box-shadow] duration-300 hover:border-[#d8ad8f] hover:shadow-[0_10px_28px_rgba(23,46,56,0.07)]"
+                key={title}
+              >
+                <div className="flex gap-3">
                 <span className="mt-0.5 flex size-7 shrink-0 items-center justify-center rounded-full bg-[#f4e7dc] text-[#b76532]"><Check className="size-4" /></span>
                 <div>
                   <h3 className="text-sm font-semibold text-[#172e38]">{title}</h3>
                   <p className="mt-1 text-xs leading-5 text-[#68767a]">A value described in the company presentation.</p>
+                </div>
                 </div>
               </div>
             ))}
@@ -185,6 +192,89 @@ export function AboutSection() {
   );
 }
 
+export function CompanyFootprintSection() {
+  const meetingPhotos = [
+    {
+      src: "/company/industry-meeting.jpg",
+      alt: "Group photograph from a meeting shown in the DS Associate presentation",
+      caption:
+        "The source caption names Industry Minister Shri Uday Samant, Industry Secretary Mr Harshdeep Kamble, MIDC CEO Mr Bipin Sharma, Jt. CEO Maliknear, O2 Power VP Prakash Surve, and DSA Founder Deepak Thorat.",
+    },
+    {
+      src: "/company/client-meeting.jpg",
+      alt: "Group photograph from an industrial meeting shown in the DS Associate presentation",
+      caption:
+        "The source caption names Kaynes Technology VP Mr Dilip Nambiar, O.L.C.I. Director Mrs Manisha Sable, George Antony, Mrs Mithula Agarwal, Mrs Anagha, and DSA Founder Deepak Thorat.",
+    },
+  ];
+
+  return (
+    <section className="bg-white py-20 sm:py-28">
+      <div className="mx-auto max-w-[1440px] px-5 sm:px-8 lg:px-12">
+        <div className="flex flex-col justify-between gap-8 lg:flex-row lg:items-end">
+          <SectionTitle
+            eyebrow="Maharashtra footprint"
+            title="Local context, across the state."
+            description="The company presentation identifies a Pune head office and five other Maharashtra locations."
+          />
+          <p className="max-w-md text-xs leading-6 text-[#869091]">
+            Locations and photographs are reproduced from supplied company materials. Confirm current office operations, map currency, names, roles, and photo-use rights before publication.
+          </p>
+        </div>
+
+        <div className="mt-12 grid gap-5 lg:grid-cols-[1.12fr_0.88fr]">
+          <Card data-motion-item className="overflow-hidden">
+            <div className="relative aspect-[1.58] min-h-64 bg-[#f4f2ec]">
+              <Image
+                src="/company/maharashtra-offices-footprint.png"
+                alt="Map of Maharashtra marked with Pune head office, Mumbai (Belapur), Ratnagiri (Rajapur), Satara, Thane, and Kolhapur offices"
+                fill
+                sizes="(max-width: 1024px) 100vw, 60vw"
+                className="object-contain p-2 sm:p-4"
+              />
+            </div>
+            <CardContent className="p-5 sm:p-7">
+              <div className="flex items-start gap-3">
+                <MapPin className="mt-1 size-5 shrink-0 text-[#bd6b36]" />
+                <div>
+                  <h3 className="text-base font-semibold text-[#172e38]">Six locations listed in the presentation</h3>
+                  <p className="mt-2 text-sm leading-6 text-[#68767a]">{siteConfig.offices.join(" · ")}</p>
+                  <p className="mt-3 text-[11px] leading-5 text-[#899291]">The map artwork is dated 2014. Office markers are illustrative of the presentation, not live locations or current address listings.</p>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+
+          <div className="grid gap-5">
+            {meetingPhotos.map((photo, index) => (
+              <Card
+                data-motion-item
+                key={photo.src}
+                style={{ "--motion-delay": `${index * 100}ms` } as React.CSSProperties}
+                className="group overflow-hidden"
+              >
+                <div className="relative aspect-[1.9] overflow-hidden bg-[#e8e4de]">
+                  <Image
+                    src={photo.src}
+                    alt={photo.alt}
+                    fill
+                    sizes="(max-width: 1024px) 100vw, 42vw"
+                    className="object-cover transition-transform duration-700 group-hover:scale-[1.035]"
+                  />
+                </div>
+                <CardContent className="p-4 sm:p-5">
+                  <p className="text-xs leading-5 text-[#68767a]">{photo.caption}</p>
+                  <p className="mt-2 text-[10px] leading-4 text-[#969d9c]">Names and roles are transcribed from the company presentation and not independently verified. A photograph does not imply endorsement, partnership, or government affiliation.</p>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 export function ServicesSection() {
   return (
     <section id="services" className="scroll-mt-20 bg-white py-20 sm:py-28">
@@ -200,8 +290,14 @@ export function ServicesSection() {
           </a>
         </div>
         <div className="mt-12 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
-          {servicePillars.map((service) => (
-            <a href={service.href} key={service.number} className="group">
+          {servicePillars.map((service, index) => (
+            <a
+              data-motion-item
+              style={{ "--motion-delay": `${index * 75}ms` } as React.CSSProperties}
+              href={service.href}
+              key={service.number}
+              className="group"
+            >
               <Card className="h-full transition-all duration-200 hover:-translate-y-1 hover:border-[#d9b294] hover:shadow-[0_16px_45px_rgba(23,46,56,0.08)]">
                 <CardContent className="flex h-full min-h-[310px] flex-col p-6 sm:p-7">
                   <div className="flex items-start justify-between">
@@ -236,7 +332,12 @@ export function ProcessSection() {
           />
           <div className="grid gap-0 sm:grid-cols-2">
             {processSteps.map((step, index) => (
-              <div className="border-t border-white/15 py-6 sm:p-6 sm:first:pl-0" key={step.title}>
+              <div
+                data-motion-item
+                style={{ "--motion-delay": `${index * 80}ms` } as React.CSSProperties}
+                className="border-t border-white/15 py-6 sm:p-6 sm:first:pl-0"
+                key={step.title}
+              >
                 <div className="flex items-center gap-3">
                   <span className="text-xs font-bold tracking-[0.18em] text-[#e3a06f]">0{index + 1}</span>
                   <span className="h-px w-10 bg-white/25" />
@@ -262,8 +363,14 @@ export function ServiceDetailSection() {
           description="A selection of coordination and advisory workstreams listed in the company presentation. Scope and applicable requirements are confirmed for each project."
         />
         <div className="mt-12 grid gap-4 lg:grid-cols-2">
-          {serviceDetails.map((service) => (
-            <Card key={service.id} id={service.id} className="scroll-mt-28">
+          {serviceDetails.map((service, index) => (
+            <Card
+              data-motion-item
+              style={{ "--motion-delay": `${index * 90}ms` } as React.CSSProperties}
+              key={service.id}
+              id={service.id}
+              className="scroll-mt-28 transition-[border-color,box-shadow] duration-300 hover:border-[#d8ad8f] hover:shadow-[0_14px_35px_rgba(23,46,56,0.06)]"
+            >
               <CardContent className="p-6 sm:p-8">
                 <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#bd6b36]">{service.label}</p>
                 <h3 className="mt-3 text-2xl font-semibold tracking-tight text-[#172e38]">{service.title}</h3>
@@ -474,7 +581,12 @@ export function IndustriesSection() {
         </div>
         <div className="grid grid-cols-2 gap-3 sm:grid-cols-3">
           {industries.map((industry, index) => (
-            <div key={industry} className="group flex min-h-[108px] flex-col justify-between rounded-xl border border-[#e8e4de] p-4 transition-colors hover:border-[#d8ad8f] hover:bg-[#fbf8f4] sm:min-h-[130px] sm:p-5">
+            <div
+              data-motion-item
+              style={{ "--motion-delay": `${(index % 6) * 55}ms` } as React.CSSProperties}
+              key={industry}
+              className="group flex min-h-[108px] flex-col justify-between rounded-xl border border-[#e8e4de] p-4 transition-[border-color,background-color,box-shadow] duration-300 hover:border-[#d8ad8f] hover:bg-[#fbf8f4] hover:shadow-[0_10px_24px_rgba(23,46,56,0.06)] sm:min-h-[130px] sm:p-5"
+            >
               <span className="text-[10px] font-bold tracking-[0.15em] text-[#bd6b36]">0{index + 1}</span>
               <span className="text-sm font-semibold leading-5 text-[#172e38]">{industry}</span>
             </div>
@@ -496,7 +608,12 @@ export function FaqSection() {
         />
         <Accordion type="single" collapsible className="w-full">
           {faqs.map((faq, index) => (
-            <AccordionItem value={`item-${index + 1}`} key={faq.question}>
+            <AccordionItem
+              data-motion-item
+              style={{ "--motion-delay": `${index * 65}ms` } as React.CSSProperties}
+              value={`item-${index + 1}`}
+              key={faq.question}
+            >
               <AccordionTrigger className="text-base">{faq.question}</AccordionTrigger>
               <AccordionContent>{faq.answer}</AccordionContent>
             </AccordionItem>

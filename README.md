@@ -32,7 +32,7 @@ ESLint is not configured in this project; there is no lint command yet.
 
 ## Content editing
 
-Edit company details, contact information, office locations, founder copy, service offerings, property ranges, project references, client logos, sectors, FAQs, and the launch checklist in [`src/content/site.ts`](./src/content/site.ts). The supplied presentation logos are stored in `public/clients/`. Keep unverified company facts marked for confirmation. Scroll reveals and the client logo ticker respect reduced-motion preferences. The page sections are in `src/components/site-sections.tsx`; the shared navigation and enquiry form live in `src/components/site-header.tsx` and `src/components/contact-form.tsx`.
+Edit company details, contact information, office locations, founder copy, service offerings, property ranges, project references, client logos, sectors, FAQs, and the launch checklist in [`src/content/site.ts`](./src/content/site.ts). Client logos are stored in `public/clients/`; the founder portrait, office footprint, and meeting photographs from the supplied presentations are in `public/company/`. Keep unverified company facts and photo-use details marked for confirmation. Scroll reveals, staggered cards, and the client logo ticker respect reduced-motion preferences. The page sections are in `src/components/site-sections.tsx`; the shared navigation and enquiry form live in `src/components/site-header.tsx` and `src/components/contact-form.tsx`.
 
 Before publishing:
 

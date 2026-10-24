@@ -25,6 +25,19 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
+button,
+a,
+input,
+select,
+textarea {
+  scroll-margin-top: 5rem;
+}
+
+a,
+button {
+  -webkit-tap-highlight-color: transparent;
+}
+
 ::selection {
   background: #f0d5c1;
   color: #172e38;
@@ -61,8 +74,20 @@ body {
     transform: translateY(0);
   }
 
+  .has-scroll-motion [data-motion-item].is-visible:hover {
+    transform: translateY(-3px);
+  }
+
   .has-scroll-motion [data-motion-item] {
     transition-delay: var(--motion-delay, 0ms);
+  }
+
+  .has-scroll-motion button,
+  .has-scroll-motion a,
+  .has-scroll-motion input,
+  .has-scroll-motion select,
+  .has-scroll-motion textarea {
+    transition-duration: 250ms;
   }
 
   .client-logo-track {

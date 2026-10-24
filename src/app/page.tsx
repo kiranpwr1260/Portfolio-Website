@@ -2,6 +2,7 @@ import { SiteHeader } from "@/components/site-header";
 import { ScrollMotion } from "@/components/scroll-motion";
 import {
   AboutSection,
+  CompanyFootprintSection,
   ContactSection,
   FaqSection,
   HeroSection,
@@ -21,13 +22,14 @@ export default function HomePage() {
       <main id="main-content">
         <ScrollMotion />
         <HeroSection />
-        <AboutSection />
         <ServicesSection />
         <ProcessSection />
         <ServiceDetailSection />
         <RealEstateSection />
         <ProjectsSection />
         <IndustriesSection />
+        <AboutSection />
+        <CompanyFootprintSection />
         <FaqSection />
         <ContactSection />
       </main>
