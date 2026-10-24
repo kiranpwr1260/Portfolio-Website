@@ -45,6 +45,45 @@ body {
   top: 1rem;
 }
 
+@media (prefers-reduced-motion: no-preference) {
+  .has-scroll-motion main > section,
+  .has-scroll-motion [data-motion-item] {
+    opacity: 0;
+    transform: translateY(22px);
+    transition:
+      opacity 700ms ease,
+      transform 700ms cubic-bezier(0.2, 0.7, 0.2, 1);
+  }
+
+  .has-scroll-motion main > section.is-visible,
+  .has-scroll-motion [data-motion-item].is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .has-scroll-motion [data-motion-item] {
+    transition-delay: var(--motion-delay, 0ms);
+  }
+
+  .client-logo-track {
+    animation: client-logo-slide 48s linear infinite;
+  }
+
+  .client-logo-marquee:hover .client-logo-track,
+  .client-logo-marquee:focus-within .client-logo-track {
+    animation-play-state: paused;
+  }
+
+  @keyframes client-logo-slide {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-50%);
+    }
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
@@ -53,5 +92,18 @@ body {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
+  }
+
+  .client-logo-track {
+    width: max-content;
+    transform: none !important;
+  }
+
+  .client-logo-marquee {
+    overflow-x: auto;
+  }
+
+  .client-logo-track > div:last-child {
+    display: none;
   }
 }

@@ -7,8 +7,6 @@ import {
   Building2,
   Check,
   ChevronRight,
-  ClipboardCheck,
-  FileCheck2,
   Handshake,
   MapPin,
   MoveUpRight,
@@ -21,8 +19,9 @@ import { ContactForm } from "@/components/contact-form";
 import {
   faqs,
   industries,
+  clientLogos,
+  clientProjects,
   processSteps,
-  projectReferences,
   realEstateCapabilities,
   serviceDetails,
   servicePillars,
@@ -351,39 +350,108 @@ export function RealEstateSection() {
 }
 
 export function ProjectsSection() {
+  const previousProjects = clientProjects.filter((project) => project.status === "Previous reference");
+  const ongoingProjects = clientProjects.filter((project) => project.status === "Ongoing project");
+
+  function ProjectCards({ projects }: { projects: typeof clientProjects }) {
+    return (
+      <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
+        {projects.map((project, index) => (
+          <Card
+            key={project.name}
+            data-motion-item
+            style={{ transitionDelay: `${(index % 6) * 70}ms` }}
+            className="overflow-hidden"
+          >
+            <CardContent className="p-0">
+              <div className="flex h-28 items-center justify-center border-b border-[#e8e4de] bg-white px-6 py-4">
+                <Image
+                  src={project.logo}
+                  alt={project.logoLabel ?? `${project.name} logo`}
+                  width={240}
+                  height={96}
+                  className="max-h-16 w-full object-contain"
+                />
+              </div>
+              <div className="p-5">
+                <div className="flex flex-wrap items-start justify-between gap-3">
+                  <h4 className="text-base font-semibold text-[#172e38]">{project.name}</h4>
+                  <span className="rounded-full bg-[#f4e7dc] px-3 py-1 text-[10px] font-semibold text-[#a6562d]">{project.status}</span>
+                </div>
+                <dl className="mt-4 grid grid-cols-2 gap-x-3 gap-y-3 border-t border-[#e8e4de] pt-4 text-xs">
+                  <div>
+                    <dt className="text-[#899291]">Location</dt>
+                    <dd className="mt-1 font-medium text-[#35474c]">{project.location}</dd>
+                  </div>
+                  <div>
+                    <dt className="text-[#899291]">Total area</dt>
+                    <dd className="mt-1 font-medium text-[#35474c]">{project.area}</dd>
+                  </div>
+                  <div>
+                    <dt className="text-[#899291]">Headquarters</dt>
+                    <dd className="mt-1 font-medium text-[#35474c]">{project.headquarters}</dd>
+                  </div>
+                  <div>
+                    <dt className="text-[#899291]">Engagement</dt>
+                    <dd className="mt-1 font-medium text-[#35474c]">{project.engagement}</dd>
+                  </div>
+                  <div className="col-span-2">
+                    <dt className="text-[#899291]">Contact number</dt>
+                    <dd className="mt-1 font-medium text-[#35474c]">{project.contact}</dd>
+                  </div>
+                </dl>
+              </div>
+            </CardContent>
+          </Card>
+        ))}
+      </div>
+    );
+  }
+
   return (
     <section id="projects" className="scroll-mt-20 bg-[#f8f7f4] py-20 sm:py-28">
       <div className="mx-auto max-w-[1440px] px-5 sm:px-8 lg:px-12">
         <div className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-end">
           <SectionTitle
             eyebrow="Projects & clients"
-            title="Selected industrial property references."
-            description="The industrial real estate presentation lists lease references and one ongoing transaction. Client names are withheld here pending publication permission; locations, sizes, and status are reproduced from the presentation and require confirmation."
+            title="Industrial relationships across sectors."
+            description="Selected client/project details and client logos reproduced from the supplied DS Associate presentations."
           />
           <div className="rounded-2xl border border-[#e2ded7] bg-white p-6 sm:p-8">
-            <p className="text-[10px] font-bold uppercase tracking-[0.18em] text-[#bd6b36]">Reference information from company materials</p>
-            <p className="mt-3 text-sm leading-6 text-[#68767a]">Names, logos, testimonials, and implied endorsements are intentionally omitted until DSA confirms permission. All project details and the ongoing/completed status require review before launch.</p>
+            <p className="text-[10px] font-bold uppercase tracking-[0.18em] text-[#bd6b36]">Presented client references</p>
+            <p className="mt-3 text-sm leading-6 text-[#68767a]">Engagement details are presented as listed in the source materials. Client relationships are not endorsements. The source spells one company name &ldquo;Kenyes technology&rdquo; and shows a Kaynes Technology logo; both are preserved for DSA verification.</p>
             <a href="#contact" className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-[#172e38] hover:text-[#bd6b36]">
               Ask about relevant experience <ArrowRight className="size-4" />
             </a>
           </div>
         </div>
-        <div className="mt-10 grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
-          {projectReferences.map((project, index) => {
-            const Icon = index === projectReferences.length - 1 ? FileCheck2 : ClipboardCheck;
-            return (
-            <Card key={`${project.location}-${project.area}`}>
-              <CardContent className="p-6">
-                <Icon className="size-5 text-[#bd6b36]" />
-                <p className="mt-5 text-[10px] font-bold uppercase tracking-[0.15em] text-[#bd6b36]">Client name withheld</p>
-                <h3 className="mt-2 text-base font-semibold text-[#172e38]">{project.engagement}</h3>
-                <p className="mt-2 text-sm text-[#68767a]">{project.location} · {project.area}</p>
-                <p className="mt-5 border-t border-[#e8e4de] pt-4 text-[10px] font-bold uppercase tracking-[0.12em] text-[#969d9c]">Presentation reference · confirm before publication</p>
-              </CardContent>
-            </Card>
-            );
-          })}
+        <div className="client-logo-marquee mt-12 overflow-hidden rounded-2xl border border-[#e8e4de] bg-white py-5" aria-label="Client logos shown in the DS Associate presentation">
+          <div className="client-logo-track flex w-max">
+            {[0, 1].map((set) => (
+              <div className="flex shrink-0 items-center gap-4 px-2 sm:gap-6 sm:px-3" key={set} aria-hidden={set === 1}>
+                {clientLogos.map((client) => (
+                  <div className="flex h-20 w-36 shrink-0 items-center justify-center rounded-xl border border-[#efede8] bg-white px-4 py-3 sm:w-44" key={client.name}>
+                    <Image
+                      src={client.logo}
+                      alt={set === 0 ? client.name : ""}
+                      width={200}
+                      height={80}
+                      className="max-h-14 w-full object-contain"
+                    />
+                  </div>
+                ))}
+              </div>
+            ))}
+          </div>
         </div>
+        <p className="mt-3 text-xs text-[#899291]">Logos and names are reproduced from the supplied presentation; DSA has confirmed permission for publication. Inclusion does not imply endorsement.</p>
+
+        <h3 className="mb-5 mt-12 text-xl font-semibold tracking-tight text-[#172e38]">Previous client references</h3>
+        <ProjectCards projects={previousProjects} />
+
+        <h3 className="mb-5 mt-12 text-xl font-semibold tracking-tight text-[#172e38]">Ongoing projects</h3>
+        <ProjectCards projects={ongoingProjects} />
+        <p className="mt-5 text-xs leading-5 text-[#7e8889]">Contact numbers were marked &ldquo;Available on Request&rdquo; in the presentation and are not published here. Confirm names, locations, areas, engagement terms, and current project status before launch.</p>
       </div>
     </section>
   );

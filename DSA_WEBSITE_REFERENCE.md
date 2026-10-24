@@ -676,8 +676,8 @@ domain and verified business information before launch.
     locations.
 -   [ ] Confirm current availability of industrial sheds, land
     inventory, and BTS investor network.
--   [ ] Confirm which client names, logos, project details, and
-    photographs may be published.
+-   [ ] Confirm client names, logos, project details, and photographs
+    are authorised for publication.
 -   [ ] Confirm the correct spelling/legal identity of "Kenyes
     technology".
 -   [ ] Review all historical policy/incentive content with a qualified
@@ -749,14 +749,23 @@ provided. TypeScript validation and the production build are available.
   deployment notes.
 - The supplied PowerPoint presentations are the source for the updated
   company start year, objective, founder biography details, service
-  labels, industrial real estate ranges, anonymised project references,
-  office locations, and contact details. Conflicting founder career and
+  labels, industrial real estate ranges, client details and logos, office
+  locations, and contact details. Conflicting founder career and
   experience descriptions are not reconciled into a single claim; DSA
   must confirm the approved biography.
-- No approved logo or photography assets are configured in the site.
-  It uses a typographic placeholder and illustrative industrial
-  photography from Unsplash. Confirm image licensing and replace with
-  approved assets before publication.
+- Client names, six project-detail cards, and the logo ticker are
+  included after DSA confirmed publication permission. The source
+  spells one client as "Kenyes technology" while its logo reads "Kaynes
+  Technology"; confirm its correct identity before launch.
+- Sections and project cards use subtle on-scroll reveals, while the
+  logo strip moves horizontally. Hover/focus pauses the strip; system
+  reduced-motion preferences disable automatic animation.
+- No approved DS Associate corporate logo or photography assets were
+  supplied. The site uses a typographic placeholder and illustrative
+  industrial photography from Unsplash. Client logos extracted from the
+  presentations are displayed after DSA confirmed permission. Confirm
+  all image licensing and replace illustrative assets with approved
+  company photography before publication.
 
 ### Enquiry form and privacy
 
@@ -784,9 +793,12 @@ layouts, and every launch approval against the checklist above.
 - [ ] Confirm names, approved company positioning, founder education,
   biography and career-history discrepancy, contact details, office
   status, and property availability.
-- [ ] Approve or remove the anonymised client/project references; the
-  six source names remain in `src/content/site.ts` for matching and
-  must not be published without DSA approval.
+- [ ] Verify the six client/project names, locations, areas, headquarters,
+  engagement terms, and previous/ongoing classification against the
+  slides. Resolve the "Kenyes technology" / Kaynes Technology
+  discrepancy before launch.
+- [ ] Confirm client logo files correspond to the intended brand names
+  and retain DSA's stated publication permission.
 - [ ] Confirm the listed property ranges and the current availability of
   facilities and Built-to-Suit investors.
 - [ ] Confirm image licensing and replace illustrative imagery with

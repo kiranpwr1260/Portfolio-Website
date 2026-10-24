@@ -32,13 +32,13 @@ ESLint is not configured in this project; there is no lint command yet.
 
 ## Content editing
 
-Edit company details, contact information, office locations, founder copy, service offerings, property ranges, project-reference data, sectors, FAQs, and the launch checklist in [`src/content/site.ts`](./src/content/site.ts). Keep unverified company facts marked for confirmation. The page sections are in `src/components/site-sections.tsx`; the shared navigation and enquiry form live in `src/components/site-header.tsx` and `src/components/contact-form.tsx`.
+Edit company details, contact information, office locations, founder copy, service offerings, property ranges, project references, client logos, sectors, FAQs, and the launch checklist in [`src/content/site.ts`](./src/content/site.ts). The supplied presentation logos are stored in `public/clients/`. Keep unverified company facts marked for confirmation. Scroll reveals and the client logo ticker respect reduced-motion preferences. The page sections are in `src/components/site-sections.tsx`; the shared navigation and enquiry form live in `src/components/site-header.tsx` and `src/components/contact-form.tsx`.
 
 Before publishing:
 
 1. Confirm the official name, logo, public positioning, founder biography, experience, education, and career details (`TODO: confirm before launch` in the typed content config).
 2. Verify phone numbers, email addresses, office address/locations, current property sourcing capability, and Built-to-Suit availability.
-3. Approve client references, project status, spelling, policy terminology, and imagery/licensing.
+3. Verify client references, project status, the "Kenyes technology" / Kaynes Technology source discrepancy, policy terminology, and imagery/licensing.
 4. Confirm privacy/consent wording and the form-delivery approach.
 5. Replace the example canonical domain and configure `NEXT_PUBLIC_SITE_URL`.
 6. Complete the full launch checklist in `DSA_WEBSITE_REFERENCE.md`.
