@@ -1,4 +1,6 @@
-# DS Associate Website
+# Portfolio-Website
+
+## DS Associate Website
 
 Responsive one-page company website built with Next.js App Router, TypeScript, Tailwind CSS v4, shadcn/ui-style components, Radix UI, and Lucide icons. The source specifications and launch checklist are in [`DSA_WEBSITE_REFERENCE.md`](./DSA_WEBSITE_REFERENCE.md).
 
